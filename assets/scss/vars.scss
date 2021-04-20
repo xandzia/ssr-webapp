@@ -1,0 +1,19 @@
+@mixin mainWrapper() {
+  max-width: 1140px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+$primary: #0f4c86;
+$lightBlue: #5797D4;
+$white: #fff;
+$lightGreyOld: #7b839e;
+$lightGrey: #505566;
+$darkGrey: #515352;
+$darkBlue: #093054;
+$footer: #2c2f3b;
+$footerText: #999fb3;
+$lightBg: #f7f9fb;
+//$lightBlueBg: #e6edf3;
+$lightBlueBg: #f1f5f9;
+$lightSecondary: #dfdfdf;

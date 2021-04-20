@@ -1,0 +1,51 @@
+media_folder: static/content/uploads
+#public_folder: /img/uploads
+backend:
+  name: git-gateway
+  repo: opf/open-budget-portal-source
+
+  api_root: https://git.spending.gov.ua/api/v4
+  base_url: https://git.spending.gov.ua
+
+
+  branch: develop
+  accept_roles: #optional - accepts all users if left out
+    - admin
+    - cms
+###################################
+
+collections:
+  - label: 'Про нас'
+    name: "about"
+    file: "/about/about.json"
+    format: json
+    fields:
+      - label: "Зміст"
+          name: "content"
+          widget: object
+          format: json
+          fields:
+            - { label: "paragraph", name: "role", widget: string, required: true, default: "paragraph" }
+            - { label: "Зміст", name: "text", widget: string, required: true }
+      - label: "Зміст_en"
+          name: "content_en"
+          widget: object
+          format: json
+          fields:
+            - { label: "paragraph", name: "role", widget: string, required: true, default: "paragraph" }
+            - { label: "Зміст", name: "text", widget: string, required: true }
+      - label: "Команда"
+          name: "team"
+          widget: "list"
+          fields:
+            - { label: "ПІБ", name: "title", widget: string, required: true }
+            - { label: "ПІБ_en", name: "title_en", widget: string, required: true }
+            - { label: "Посада", name: "position", widget: string, required: true }
+            - { label: "Посада_en", name: "position_en", widget: string, required: true }
+            - label: "Фото"
+                name: "image"
+                widget: object
+                fields:
+                  - { label: "Завантажити", name: "src", widget: image }
+                  - { label: "Alt", name: "alt", widget: string, default: "img" }
+                  - { label: "Alt_eng", name: "alt_eng", widget: string, default: "img" }

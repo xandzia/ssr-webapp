@@ -1,0 +1,27 @@
+media_folder: static/content/uploads
+#public_folder: /img/uploads
+backend:
+  name: git-gateway
+  repo: opf/open-budget-portal-source
+
+  api_root: https://git.spending.gov.ua/api/v4
+  base_url: https://git.spending.gov.ua
+
+
+  branch: develop
+  accept_roles: #optional - accepts all users if left out
+    - admin
+    - cms
+###################################
+
+collections:
+  - label: 'Публікації в ЗМІ'
+    name: "media"
+    file: "/media/media.json"
+    widget: list
+    allow_add: true
+    fields:
+      - { label: "ID", name: "id", widget: number, valueType: int, min: 1, step: 1, required: true }
+      - { label: "Назва", name: "title", widget: string, required: true }
+      - { label: "source", name: "source", widget: string, required: true }
+      - { label: "link", name: "link", widget: string, required: true }

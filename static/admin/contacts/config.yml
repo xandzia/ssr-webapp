@@ -1,0 +1,38 @@
+media_folder: static/content/uploads
+#public_folder: /img/uploads
+backend:
+  name: git-gateway
+  repo: opf/open-budget-portal-source
+
+  api_root: https://git.spending.gov.ua/api/v4
+  base_url: https://git.spending.gov.ua
+
+
+  branch: develop
+  accept_roles: #optional - accepts all users if left out
+    - admin
+    - cms
+###################################
+
+collections:
+  - label: 'Контакти'
+    name: "contacts"
+    file: "/contacts/contactsPage.json"
+    format: json
+    fields:
+      - label: "Адреса для листування"
+          name: "postAddress"
+          widget: object
+          format: json
+          fields:
+            - { label: "en", name: "en", widget: string, required: true }
+            - { label: "ua", name: "ua", widget: string, required: true }
+      - label: "Контакти"
+          name: "contacts"
+          widget: "list"
+          fields:
+            - { label: "Юридична адреса:", name: "title", widget: string, required: true }
+            - { label: "Address_en", name: "title_en", widget: string, required: true }
+            - { label: "Опис", name: "content", widget: string, required: true }
+            - { label: "Опис_en", name: "content_en", widget: string, required: true }
+            - { label: "name(address,phone,workingHours,email)", name: "name", widget: string, required: true }
